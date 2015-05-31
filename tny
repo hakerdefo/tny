@@ -18,4 +18,4 @@ while read -r line; do
 url=$line
 done
 fi
-echo `wget -q -O - http://tny.im/yourls-api.php?action=shorturl\&format=simple\&url="$url"\&keyword="$2"`
+printf "%s" "Short url -> " && echo `wget -q -O - http://tny.im/yourls-api.php?action=shorturl\&format=simple\&url="$url"\&keyword="$2"`
