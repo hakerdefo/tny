@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ -t 0 ]; then
+if [ -z "$1" ]; then
+echo ""
+echo "Shortens url with tny.im url shortener."
+echo ""
+echo "It shortens email & Bitcoin-Dogecoin-Litecoin addresses too."
+echo ""
+echo "Usage: tny long_url_address keyword"
+echo ""
+echo "Second argument 'keyword' is optional. Use it to customize the short url."
+echo ""
+exit 1
+fi
+url=$1;
+else
+while read -r line; do
+url=$line
+done
+fi
+echo `wget -q -O - http://tny.im/yourls-api.php?action=shorturl\&format=simple\&url="$url"\&keyword="$2"`
